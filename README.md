@@ -1,7 +1,7 @@
 # Redmine2 Cookbook
 
-[![Build Status](https://secure.travis-ci.org/aminin/redmine2-cookbook.png?branch=master)](http://travis-ci.org/aminin/redmine2-cookbook)
-[![Dependencies](https://gemnasium.com/aminin/redmine2-cookbook.png?branch=master)](https://gemnasium.com/aminin/redmine2-cookbook)
+[![Build Status](https://secure.travis-ci.org/gortazar/redmine2-cookbook.png?branch=master)](http://travis-ci.org/aminin/redmine2-cookbook)
+[![Dependencies](https://gemnasium.com/gortazar/redmine2-cookbook.png?branch=master)](https://gemnasium.com/aminin/redmine2-cookbook)
 
 Installs Redmine v2, a Ruby on Rails ticket tracking and wiki tool
 

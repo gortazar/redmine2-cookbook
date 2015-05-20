@@ -53,6 +53,22 @@ else
   include_recipe 'ruby_build'
   include_recipe 'rbenv::user'
 
+  rbenv_gem "bundler" do
+    rbenv_version "2.2.1"
+    user node[:redmine][:user]
+  end
+
+  bash "#{node[:redmine][:home]}/.rbenv/bin/rbenv rehash" do
+    user node[:redmine][:user]
+    cwd node[:redmine][:home]
+    environment ({ "HOME" => "#{node[:redmine][:home]}", "RBENV_ROOT" => "#{node[:redmine][:home]}/.rbenv", "RBENV_VERSION" => "2.2.1" })
+    code <<-EOH
+      #{node[:redmine][:home]}/.rbenv/shims/gem install bundler
+      #{node[:redmine][:home]}/.rbenv/bin/rbenv rehash
+    EOH
+    not_if { ::File.exists?("#{node[:redmine][:home]}/.rbenv/shims/bundle") }
+  end
+
   bundle_command = "#{node[:redmine][:home]}/.rbenv/shims/bundle"
   rake_command = "#{node[:redmine][:home]}/.rbenv/shims/rake"
   ruby_command = "#{node[:redmine][:home]}/.rbenv/shims/ruby"
